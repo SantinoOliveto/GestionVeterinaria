@@ -8,6 +8,8 @@ namespace GestionVeterinariaServices.Models
 {
     public class Usuario
     {
-        public string contrasena {  get; set; }
+        public int Id { get; set; }
+        public string Nombres {  get; set; }
+        public string Claves {  get; set; }
     }
 }

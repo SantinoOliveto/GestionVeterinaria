@@ -19,7 +19,7 @@ namespace GestionVeterinariaServices.DAOs
             return connect;
         }
 
-        public void insert(Especie especie)
+        public void Insert(Especie especie)
         {
             string sQuery = $"INSERT INTO Especie" +
                 $"(nombres, edadesMadurez, pesosPromedio)" +
@@ -36,7 +36,7 @@ namespace GestionVeterinariaServices.DAOs
             connect.Close();
         }
 
-        public List<Especie> getAll()
+        public List<Especie> GetAll()
         {
             List<Especie> listaEspecies = new List<Especie>();
 
