@@ -12,7 +12,7 @@ namespace GestionVeterinariaServices.Models
         public int edad { get; set; }
         public int peso { get; set; }
 
-        public Especie(string nombre, int edad, int peso)
+        public Especie()
         {
             this.nombre = nombre;
             this.edad = edad;

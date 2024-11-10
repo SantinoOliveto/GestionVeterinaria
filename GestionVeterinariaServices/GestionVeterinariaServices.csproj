@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DAOs\EspeciesDAO.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Especie.cs" />
@@ -49,7 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAOs\" />
     <Folder Include="Excepciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
