@@ -1,3 +1,7 @@
+-- Creación de la base de datos
+CREATE DATABASE VeterinariaDB;
+USE VeterinariaDB;
+
 -- Tabla Cliente
 CREATE TABLE Cliente (
     Id INT PRIMARY KEY IDENTITY(1,1),
