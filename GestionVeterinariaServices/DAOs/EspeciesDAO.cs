@@ -14,17 +14,25 @@ namespace GestionVeterinariaServices.DAOs
         {
             string sQuery = $"INSERT INTO Especie" +
                 $"(nombres, edadesMadurez, pesosPromedio)" +
-                $"VALUES ({especie.Nombre}, {especie.Edad}, {especie.Peso})";
+                $"VALUES (@Nombres, @EdadesMadurez, @PesosPromedio)";
 
             SqlConnection connect = this.GetConexion();
 
             SqlCommand cmd = connect.CreateCommand();
+
+            cmd.Parameters.AddWithValue("@Nombres", especie.Nombre);
+            cmd.Parameters.AddWithValue("@EdadesMadurez", especie.Edad);
+            cmd.Parameters.AddWithValue("@PesosPromedio", especie.Peso);
 
             cmd.CommandText = sQuery;
 
             cmd.ExecuteNonQuery();
 
             connect.Close();
+
+            //string sQuery = $"INSERT INTO Especie" +
+            //$"(nombres, edadesMadurez, pesosPromedio)" +
+            //$"VALUES ({especie.Nombre}, {especie.Edad}, {especie.Peso})";
         }
 
         public List<Especie> GetAllEspecies()
@@ -35,22 +43,22 @@ namespace GestionVeterinariaServices.DAOs
 
             SqlCommand cmd = connect.CreateCommand();
 
-            cmd.CommandText = "SELECT nombres, edadesMadurez, pesosPromedio" +
-                "* FROM Especies";
+            cmd.CommandText = "SELECT Nombres, EdadesMadurez, PesosPromedio" +
+                " FROM Especie";
 
             SqlDataReader lector = cmd.ExecuteReader();
 
             while(lector.Read())
             {
-                Especie especie = new Especie()
-                {
-                    Nombre = lector.GetString(0),
-                    Edad = lector.GetInt32(1),
-                    Peso = lector.GetInt32(2)
-                };
+                Especie especie = new Especie();
+
+                especie.Nombre = lector.GetString(0);
+                especie.Edad = lector.GetInt32(1);
+                especie.Peso = lector.GetDecimal(2);
                 
                 listaEspecies.Add(especie);
             }
+
             connect.Close();
 
             return listaEspecies;

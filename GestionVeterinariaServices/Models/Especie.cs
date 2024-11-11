@@ -10,9 +10,9 @@ namespace GestionVeterinariaServices.Models
     {
         public string Nombre {  get; set; }
         public int Edad { get; set; }
-        public int Peso { get; set; }
+        public decimal Peso { get; set; }
 
-        public Especie(string nombre, int edad, int peso)
+        public Especie(string nombre, int edad, decimal peso)
         {
             this.Nombre = nombre;
             this.Edad = edad;
