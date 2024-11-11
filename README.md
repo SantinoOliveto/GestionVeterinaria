@@ -1,7 +1,7 @@
 # GestionVeterinaria
 Es una aplicación de Windows Forms diseñada para ofrecer a los usuarios una solución eficiente para el registro y la edición de entidades asociadas, tales como clientes, animales, especies y usuarios. La aplicación facilita el almacenamiento y la organización de estos datos, mejorando la gestión y el acceso a la información crítica para la operación diaria de una veterinaria.
 
-CARACTERISTICAS DE LA APLICACIÓN
+CARACTERISTICAS DE LA APLICACIÓN /n
 La aplicación cuenta con:
 Login: Creación de usuarios.
 Altas: registro de nuevas identidades en la base de datos.
