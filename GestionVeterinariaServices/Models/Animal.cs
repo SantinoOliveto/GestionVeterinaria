@@ -8,19 +8,21 @@ namespace GestionVeterinariaServices.Models
 {
     public class Animal
     {
-        public Cliente Cliente {  get; set; }
-        public Especie Especie { get; set; }
+        public int ClienteID {  get; set; }
+        public int EspecieID { get; set; }
         public string Nombre { get; set; }
-        public int Peso { get; set; }
+        public decimal Peso { get; set; }
         public int Edad {  get; set; }
 
-        public Animal(Cliente cliente, Especie especie, string nombre, int peso, int edad)
+        public Animal(int cliente, int especie, string nombre, int peso, int edad)
         {
-            Cliente = cliente;
-            Especie = especie;
+            ClienteID = cliente;
+            EspecieID = especie;
             Nombre = nombre;
             Peso = peso;
             Edad = edad;
         }
+
+        public Animal() { } 
     }
 }

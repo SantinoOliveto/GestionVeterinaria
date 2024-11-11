@@ -8,7 +8,7 @@ namespace GestionVeterinariaServices.Models
 {
     public class Usuario
     {
-        public int Id { get; set; }
+        public long UsuarioId { get; set; }
         public string Nombres {  get; set; }
         public string Claves {  get; set; }
     }

@@ -3,6 +3,7 @@ using GestionVeterinariaServices.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -45,7 +46,7 @@ namespace GestionVeterinariaServices.DAOs
                     {
                         return new Usuario
                         {
-                            Id = (int)reader["Id"],
+                            UsuarioId = (int)reader["Id"],
                             Nombres = reader["nombres"].ToString()
                         };
                     }
@@ -65,5 +66,7 @@ namespace GestionVeterinariaServices.DAOs
                 return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
         }
+
+        
     }
 }
