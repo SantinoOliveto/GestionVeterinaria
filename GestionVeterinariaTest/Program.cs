@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionVeterinariaServices.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace GestionVeterinariaTest
     {
         static void Main(string[] args)
         {
+            Especie especie1 = new Especie("perro", 10, 110);
         }
     }
 }

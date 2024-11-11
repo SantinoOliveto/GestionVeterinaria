@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionVeterinariaServices\GestionVeterinariaServices.csproj">
+      <Project>{6DE8C644-01A4-48AE-8924-93F2CEC2E81C}</Project>
+      <Name>GestionVeterinariaServices</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

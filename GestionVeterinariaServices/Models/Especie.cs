@@ -8,15 +8,17 @@ namespace GestionVeterinariaServices.Models
 {
     public class Especie
     {
-        public string nombre {  get; set; }
-        public int edad { get; set; }
-        public int peso { get; set; }
+        public string Nombre {  get; set; }
+        public int Edad { get; set; }
+        public int Peso { get; set; }
 
-        public Especie()
+        public Especie(string nombre, int edad, int peso)
         {
-            this.nombre = nombre;
-            this.edad = edad;
-            this.peso = peso;
+            this.Nombre = nombre;
+            this.Edad = edad;
+            this.Peso = peso;
         }
+
+        public Especie() { }
     }
 }

@@ -8,22 +8,13 @@ using System.Threading.Tasks;
 
 namespace GestionVeterinariaServices.DAOs
 {
-    public class EspeciesDAO
+    public class EspeciesDAO : ConexionDAO
     {
-        private readonly string sConexion = "";
-
-        private SqlConnection GetConexion()
-        {
-            SqlConnection connect = new SqlConnection(this.sConexion);
-            connect.Open();
-            return connect;
-        }
-
-        public void Insert(Especie especie)
+        public void InsertEspecie(Especie especie)
         {
             string sQuery = $"INSERT INTO Especie" +
                 $"(nombres, edadesMadurez, pesosPromedio)" +
-                $"VALUES ({especie.nombre}, {especie.edad}, {especie.peso})";
+                $"VALUES ({especie.Nombre}, {especie.Edad}, {especie.Peso})";
 
             SqlConnection connect = this.GetConexion();
 
@@ -36,7 +27,7 @@ namespace GestionVeterinariaServices.DAOs
             connect.Close();
         }
 
-        public List<Especie> GetAll()
+        public List<Especie> GetAllEspecies()
         {
             List<Especie> listaEspecies = new List<Especie>();
 
@@ -51,21 +42,18 @@ namespace GestionVeterinariaServices.DAOs
 
             while(lector.Read())
             {
-                Especie especie = new Especie();
-
-                especie.nombre = lector.GetString(0);
-                especie.edad = lector.GetInt32(1);
-                especie.peso = lector.GetInt32(2);
+                Especie especie = new Especie()
+                {
+                    Nombre = lector.GetString(0),
+                    Edad = lector.GetInt32(1),
+                    Peso = lector.GetInt32(2)
+                };
                 
                 listaEspecies.Add(especie);
             }
-
-            //Falta algo
             connect.Close();
 
             return listaEspecies;
-
-            //Test
         }
     }
 }

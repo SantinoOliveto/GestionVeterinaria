@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DAOs\ConexionDAO.cs" />
     <Compile Include="DAOs\EspeciesDAO.cs" />
     <Compile Include="DAOs\UsuariosDAO.cs" />
     <Compile Include="Exceptions\AutenticacionFallidaException.cs" />
