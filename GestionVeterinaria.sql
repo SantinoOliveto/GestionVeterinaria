@@ -2,8 +2,6 @@
 CREATE DATABASE VeterinariaDB;
 USE VeterinariaDB;
 
-USE VeterinariaDB
-
 --Tabla Usuarios
 CREATE TABLE Usuarios(
     UsuarioID INT PRIMARY KEY IDENTITY,
