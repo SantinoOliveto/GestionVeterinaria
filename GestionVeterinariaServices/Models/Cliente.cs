@@ -8,12 +8,12 @@ namespace GestionVeterinariaServices.Models
 {
     public class Cliente
     {
-        public int Dni { get; set; }
+        public int DNI { get; set; }
         public string Nombre { get; set; }
 
         public Cliente(int dni, string nombre)
         {
-            this.Dni = dni;
+            this.DNI = dni;
             this.Nombre = nombre;
         }
     }

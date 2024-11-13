@@ -22,8 +22,8 @@ namespace GestionVeterinariaServices.DAOs
             {
                 string query = "INSERT INTO Usuario (nombres, claves) VALUES (@Nombres, @Clave)";
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Nombres", usuario.Nombres);
-                command.Parameters.AddWithValue("@Clave", HashPassword(usuario.Claves));
+                command.Parameters.AddWithValue("@Nombres", usuario.Nombre);
+                command.Parameters.AddWithValue("@Clave", HashPassword(usuario.Clave));
 
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -46,8 +46,7 @@ namespace GestionVeterinariaServices.DAOs
                     {
                         return new Usuario
                         {
-                            UsuarioId = (int)reader["Id"],
-                            Nombres = reader["nombres"].ToString()
+                            Nombre = reader["nombres"].ToString()
                         };
                     }
                     else

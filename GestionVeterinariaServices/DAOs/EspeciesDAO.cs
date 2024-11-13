@@ -12,8 +12,8 @@ namespace GestionVeterinariaServices.DAOs
     {
         public void InsertEspecie(Especie especie)
         {
-            string sQuery = $"INSERT INTO Especie" +
-                $"(nombres, edadesMadurez, pesosPromedio)" +
+            string sQuery = $"INSERT INTO Especies" +
+                $"(Nombre, EdadMadurez, PesoPromedio)" +
                 $"VALUES (@Nombres, @EdadesMadurez, @PesosPromedio)";
 
             SqlConnection connect = this.GetConexion();
@@ -21,8 +21,8 @@ namespace GestionVeterinariaServices.DAOs
             SqlCommand cmd = connect.CreateCommand();
 
             cmd.Parameters.AddWithValue("@Nombres", especie.Nombre);
-            cmd.Parameters.AddWithValue("@EdadesMadurez", especie.Edad);
-            cmd.Parameters.AddWithValue("@PesosPromedio", especie.Peso);
+            cmd.Parameters.AddWithValue("@EdadesMadurez", especie.EdadMadurez);
+            cmd.Parameters.AddWithValue("@PesosPromedio", especie.PesoPromedio);
 
             cmd.CommandText = sQuery;
 
@@ -43,8 +43,8 @@ namespace GestionVeterinariaServices.DAOs
 
             SqlCommand cmd = connect.CreateCommand();
 
-            cmd.CommandText = "SELECT Nombres, EdadesMadurez, PesosPromedio" +
-                " FROM Especie";
+            cmd.CommandText = "SELECT Nombre, EdadMadurez, PesoPromedio" +
+                " FROM Especies";
 
             SqlDataReader lector = cmd.ExecuteReader();
 
@@ -53,8 +53,8 @@ namespace GestionVeterinariaServices.DAOs
                 Especie especie = new Especie();
 
                 especie.Nombre = lector.GetString(0);
-                especie.Edad = lector.GetInt32(1);
-                especie.Peso = lector.GetDecimal(2);
+                especie.EdadMadurez = lector.GetInt32(1);
+                especie.PesoPromedio = lector.GetDecimal(2);
                 
                 listaEspecies.Add(especie);
             }

@@ -18,8 +18,8 @@ namespace GestionVeterinariaServices.DAOs
 
             SqlCommand cmd = connect.CreateCommand();
 
-            cmd.CommandText = "SELECT Nombres, Pesos, Edades, ClienteID, EspecieID" +
-                " FROM Animal";
+            cmd.CommandText = "SELECT Nombre, Peso, Edad, ClienteDNI, EspecieID" +
+                " FROM Animales";
 
             SqlDataReader lector = cmd.ExecuteReader();
 
@@ -31,13 +31,13 @@ namespace GestionVeterinariaServices.DAOs
                     Nombre = lector.GetString(1),
                     Peso = lector.GetDecimal(2),
                     Edad = lector.GetInt32(3),
-                    ClienteID = lector.GetInt32(4),
+                    ClienteDNI = lector.GetInt32(4),
                     EspecieID = lector.GetInt32(5),
 
                    
                 };
 
-                Console.WriteLine($"{animal.Nombre}, {animal.Peso}, {animal.Edad}, {animal.ClienteID}, {animal.EspecieID}");
+                Console.WriteLine($"{animal.Nombre}, {animal.Peso}, {animal.Edad}, {animal.ClienteDNI}, {animal.EspecieID}");
                 listaAnimales.Add(animal);
             }
             Console.ReadKey();
@@ -48,19 +48,19 @@ namespace GestionVeterinariaServices.DAOs
 
         public void InsertAnimal(Animal animal)
         {
-            string sQuery = $"INSERT INTO Animal" +
-                $"(Nombres, Pesos, Ddades, ClienteId, EspecieId)" +
-                $" VALUES (@Nombres, @Pesos, @Edades, @ClienteId, @EspecieId)";
+            string sQuery = $"INSERT INTO Animales" +
+                $"(Nombre, Peso, Edad, ClienteDNI, EspecieID)" +
+                $" VALUES (@Nombre, @Peso, @Edad, @ClienteDNI, @EspecieID)";
 
             SqlConnection connect = this.GetConexion();
 
             SqlCommand cmd = connect.CreateCommand();
 
-            cmd.Parameters.AddWithValue("@Nombres", animal.Nombre);
-            cmd.Parameters.AddWithValue("@Pesos", animal.Peso);
-            cmd.Parameters.AddWithValue("@Edades", animal.Edad);
-            cmd.Parameters.AddWithValue("@ClienteId" , animal.ClienteID);
-            cmd.Parameters.AddWithValue("@EspecieId", animal.EspecieID);
+            cmd.Parameters.AddWithValue("@Nombre", animal.Nombre);
+            cmd.Parameters.AddWithValue("@Peso", animal.Peso);
+            cmd.Parameters.AddWithValue("@Edad", animal.Edad);
+            cmd.Parameters.AddWithValue("@ClienteDNI" , animal.ClienteDNI);
+            cmd.Parameters.AddWithValue("@EspecieID", animal.EspecieID);
 
 
             cmd.CommandText = sQuery;
