@@ -12,9 +12,7 @@ namespace GestionVeterinariaServices.DAOs
     {
         public void InsertEspecie(Especie especie)
         {
-            string sQuery = $"INSERT INTO Especies" +
-                $"(Nombre, EdadMadurez, PesoPromedio)" +
-                $"VALUES (@Nombres, @EdadesMadurez, @PesosPromedio)";
+            string sQuery = "INSERT INTO Especies (Nombre, EdadMadurez, PesoPromedio) VALUES (@Nombres, @EdadesMadurez, @PesosPromedio)";
 
             SqlConnection connect = this.GetConexion();
 
