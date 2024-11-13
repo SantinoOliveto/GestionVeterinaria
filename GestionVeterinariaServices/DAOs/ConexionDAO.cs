@@ -9,7 +9,8 @@ namespace GestionVeterinariaServices.DAOs
 {
     public class ConexionDAO
     {
-        private const string STRING_CONNECTION = "Server=DESKTOP-1UJMR1R\\SQLEXPRESS01;Database=VeterinariaDBTest;Trusted_Connection=True;";
+        // NO OLVIDARNOS DE CAMBIAR EL STRING CONNECTION EN CADA PRUEBA, PUEDE QUE ESTES EN OTRA BASE DE DATOS
+        private const string STRING_CONNECTION ="Server=MAXI\\SQLEXPRESS;Database=VeterinariaTEST;Trusted_Connection=True;";
 
         public SqlConnection GetConexion()
         {

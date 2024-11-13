@@ -14,10 +14,11 @@ namespace GestionVeterinariaServices.Models
         public decimal Peso { get; set; }
         public int Edad {  get; set; }
 
-        public Animal(int cliente, int especie, string nombre, int peso, int edad)
+        public Animal( int clienteDNI, int especieID, string nombre, decimal peso, int edad)
         {
-            ClienteDNI = cliente;
-            EspecieID = especie;
+           
+            ClienteDNI = clienteDNI;
+            EspecieID = especieID;
             Nombre = nombre;
             Peso = peso;
             Edad = edad;

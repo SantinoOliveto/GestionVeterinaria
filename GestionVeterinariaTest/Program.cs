@@ -33,7 +33,7 @@ namespace GestionVeterinariaTest
         {
             AnimalesDAO DAO = new AnimalesDAO();
 
-            Animal animal1 = new Animal(1, 1,"Jose", 11, 8);
+            Animal animal1 = new Animal(44641045, 1,"Jose", 11, 8);
             //Animal animal2 = new Animal(4, 2, "Pepe", 5, 18);
 
             DAO.GetConexion();
