@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestionVeterinaria
+namespace GestionVeterinaria.Forms
 {
-    public partial class Form1 : Form
+    public partial class FormAltas : Form
     {
-        public Form1()
+        public FormAltas()
         {
             InitializeComponent();
         }
-
-
     }
 }
