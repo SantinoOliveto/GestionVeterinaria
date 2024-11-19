@@ -90,6 +90,35 @@ namespace GestionVeterinariaServices.DAOs
             adapter.Fill(dataTable);
 
             return dataTable;
-        } 
+        }
+        
+        public DataTable GetSegundoReporte()
+        {
+            string sQuery = "SELECT " +
+                           "    c.Nombre AS Cliente, " +
+                           "    COUNT(a.AnimalID) AS CantidadAnimales " +
+                           "FROM " +
+                           "    Animales a " +
+                           "JOIN " +
+                           "    Clientes c ON a.ClienteDNI = c.DNI " +
+                           "GROUP BY " +
+                           "    c.Nombre " +
+                           "ORDER BY " +
+                           "    CantidadAnimales ASC;";
+
+            SqlConnection connect = this.GetConexion();
+
+            SqlCommand cmd = connect.CreateCommand();
+
+            cmd.CommandText = sQuery;
+
+            SqlDataAdapter adapter = new SqlDataAdapter((SqlCommand)cmd);
+
+            DataTable dataTable = new DataTable();
+
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
     }
 }
