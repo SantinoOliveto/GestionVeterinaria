@@ -32,12 +32,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxNombreUsuario = new System.Windows.Forms.TextBox();
-            this.txtBoxClaveUsuario = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnRegistrarse = new System.Windows.Forms.Button();
+            this.txtBoxClaveUsuario = new System.Windows.Forms.TextBox();
+            this.txtBoxNombreUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -92,6 +92,49 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // btnRegistrarse
+            // 
+            this.btnRegistrarse.Location = new System.Drawing.Point(135, 290);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.Size = new System.Drawing.Size(102, 38);
+            this.btnRegistrarse.TabIndex = 7;
+            this.btnRegistrarse.Text = "Registrarse";
+            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxClaveUsuario
+            // 
+            this.txtBoxClaveUsuario.Location = new System.Drawing.Point(33, 204);
+            this.txtBoxClaveUsuario.Name = "txtBoxClaveUsuario";
+            this.txtBoxClaveUsuario.Size = new System.Drawing.Size(314, 20);
+            this.txtBoxClaveUsuario.TabIndex = 6;
+            // 
+            // txtBoxNombreUsuario
+            // 
+            this.txtBoxNombreUsuario.Location = new System.Drawing.Point(33, 100);
+            this.txtBoxNombreUsuario.Name = "txtBoxNombreUsuario";
+            this.txtBoxNombreUsuario.Size = new System.Drawing.Size(314, 20);
+            this.txtBoxNombreUsuario.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label5.Location = new System.Drawing.Point(144, 184);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 17);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Contraseña";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.Location = new System.Drawing.Point(118, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Nombre de Usuario";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button1);
@@ -105,49 +148,6 @@
             this.groupBox2.Size = new System.Drawing.Size(380, 419);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(118, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Nombre de Usuario";
-            // 
-            // txtBoxNombreUsuario
-            // 
-            this.txtBoxNombreUsuario.Location = new System.Drawing.Point(33, 100);
-            this.txtBoxNombreUsuario.Name = "txtBoxNombreUsuario";
-            this.txtBoxNombreUsuario.Size = new System.Drawing.Size(314, 20);
-            this.txtBoxNombreUsuario.TabIndex = 3;
-            // 
-            // txtBoxClaveUsuario
-            // 
-            this.txtBoxClaveUsuario.Location = new System.Drawing.Point(33, 204);
-            this.txtBoxClaveUsuario.Name = "txtBoxClaveUsuario";
-            this.txtBoxClaveUsuario.Size = new System.Drawing.Size(314, 20);
-            this.txtBoxClaveUsuario.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(144, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Contraseña";
-            // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(135, 290);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(102, 38);
-            this.btnRegistrarse.TabIndex = 7;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -201,7 +201,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "FormLogin";
-            this.Text = "Form1";
+            this.Text = "Gestion Veterinaria";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

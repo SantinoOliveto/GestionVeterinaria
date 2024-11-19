@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnFiltrarCliente = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtBoxDNIInforme = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnFiltrarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,14 +67,12 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
-            // btnFiltrarCliente
+            // txtBoxDNIInforme
             // 
-            this.btnFiltrarCliente.Location = new System.Drawing.Point(121, 137);
-            this.btnFiltrarCliente.Name = "btnFiltrarCliente";
-            this.btnFiltrarCliente.Size = new System.Drawing.Size(99, 26);
-            this.btnFiltrarCliente.TabIndex = 7;
-            this.btnFiltrarCliente.Text = "Filtrar";
-            this.btnFiltrarCliente.UseVisualStyleBackColor = true;
+            this.txtBoxDNIInforme.Location = new System.Drawing.Point(70, 92);
+            this.txtBoxDNIInforme.Name = "txtBoxDNIInforme";
+            this.txtBoxDNIInforme.Size = new System.Drawing.Size(206, 20);
+            this.txtBoxDNIInforme.TabIndex = 9;
             // 
             // label2
             // 
@@ -86,12 +84,14 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "DNI del Cliente";
             // 
-            // txtBoxDNIInforme
+            // btnFiltrarCliente
             // 
-            this.txtBoxDNIInforme.Location = new System.Drawing.Point(70, 92);
-            this.txtBoxDNIInforme.Name = "txtBoxDNIInforme";
-            this.txtBoxDNIInforme.Size = new System.Drawing.Size(206, 20);
-            this.txtBoxDNIInforme.TabIndex = 9;
+            this.btnFiltrarCliente.Location = new System.Drawing.Point(121, 137);
+            this.btnFiltrarCliente.Name = "btnFiltrarCliente";
+            this.btnFiltrarCliente.Size = new System.Drawing.Size(99, 26);
+            this.btnFiltrarCliente.TabIndex = 7;
+            this.btnFiltrarCliente.Text = "Filtrar";
+            this.btnFiltrarCliente.UseVisualStyleBackColor = true;
             // 
             // FormReporte2
             // 
@@ -102,7 +102,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "FormReporte2";
-            this.Text = "FormReporte2";
+            this.Text = "Gestion Veterinaria";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

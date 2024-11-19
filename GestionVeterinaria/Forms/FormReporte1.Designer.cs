@@ -122,7 +122,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "FormReporte1";
-            this.Text = "FormInformes";
+            this.Text = "Gestion Veterianria";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
