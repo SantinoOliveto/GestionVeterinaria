@@ -14,7 +14,7 @@ namespace GestionVeterinariaTest
     {
         static void Main(string[] args)
         {
-            PruebaDAOUsuarios();
+            PruebaDAOClientes();
         }
 
         static void PruebaDAOEspecies()
@@ -54,6 +54,16 @@ namespace GestionVeterinariaTest
             //DAO.InsertUsuario(usuario1);
             DAO.GetAllUsuarios();
             DAO.GetLoginUsuario("Jose", "asdasd23");
+        }
+
+        static void PruebaDAOClientes()
+        {
+            ClientesDAO DAO = new ClientesDAO();
+
+            Cliente cliente1 = new Cliente(12345, "Roberto Carlos");
+            DAO.GetConexion();
+            DAO.InsertCliente(cliente1);
+            DAO.GetAllClientes();
         }
     }
 }
