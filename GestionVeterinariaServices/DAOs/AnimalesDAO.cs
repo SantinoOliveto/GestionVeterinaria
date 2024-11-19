@@ -34,10 +34,8 @@ namespace GestionVeterinariaServices.DAOs
 
                 };
 
-                Console.WriteLine($"{animal.Nombre}, {animal.Peso}, {animal.Edad}, {animal.ClienteDNI}, {animal.EspecieID}");
                 listaAnimales.Add(animal);
             }
-            Console.ReadKey();
             connect.Close();
 
             return listaAnimales;

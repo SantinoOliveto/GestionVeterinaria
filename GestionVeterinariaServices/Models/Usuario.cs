@@ -10,5 +10,15 @@ namespace GestionVeterinariaServices.Models
     {
         public string Nombre {  get; set; }
         public string Clave {  get; set; }
+
+        public Usuario(string nombre, string clave)
+        {
+            Nombre = nombre;
+            Clave = clave;
+        }
+
+        public Usuario()
+        {
+        }
     }
 }

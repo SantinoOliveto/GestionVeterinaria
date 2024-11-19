@@ -16,5 +16,9 @@ namespace GestionVeterinariaServices.Models
             this.DNI = dni;
             this.Nombre = nombre;
         }
+
+        public Cliente()
+        {
+        }
     }
 }

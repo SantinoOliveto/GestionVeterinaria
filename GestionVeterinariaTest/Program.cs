@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace GestionVeterinariaTest
 {
@@ -13,10 +14,10 @@ namespace GestionVeterinariaTest
     {
         static void Main(string[] args)
         {
-            PruebaDAO2();
+            PruebaDAOUsuarios();
         }
 
-        static void PruebaDAO()
+        static void PruebaDAOEspecies()
         {
             EspeciesDAO DAO = new EspeciesDAO();
 
@@ -29,7 +30,7 @@ namespace GestionVeterinariaTest
             DAO.GetAllEspecies();
 
         }
-        static void PruebaDAO2()
+        static void PruebaDAOAnimales()
         {
             AnimalesDAO DAO = new AnimalesDAO();
 
@@ -41,6 +42,18 @@ namespace GestionVeterinariaTest
             DAO.InsertAnimal(animal1);
             DAO.GetAllAnimales();
 
+        }
+
+        static void PruebaDAOUsuarios()
+        {
+            UsuariosDAO DAO = new UsuariosDAO();
+
+            Usuario usuario1 = new Usuario("Jose", "asdasd23");
+
+            DAO.GetConexion();
+            //DAO.InsertUsuario(usuario1);
+            DAO.GetAllUsuarios();
+            DAO.GetLoginUsuario("Jose", "asdasd23");
         }
     }
 }

@@ -10,62 +10,83 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionVeterinariaServices.DAOs
+namespace GestionVeterinariaServices.DAOs 
 {
-    public class UsuariosDAO
+    public class UsuariosDAO : ConexionDAO
     {
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["VeterinariaDB"].ConnectionString;
-
-        public void CrearUsuario(Usuario usuario)
+        public void InsertUsuario (Usuario usuario)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "INSERT INTO Usuario (nombres, claves) VALUES (@Nombres, @Clave)";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Nombres", usuario.Nombre);
-                command.Parameters.AddWithValue("@Clave", HashPassword(usuario.Clave));
+            string sQuery = "INSERT INTO Usuarios (Nombre, Clave) VALUES (@Nombre, @Clave)";
 
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
+            SqlConnection connect = this.GetConexion();
+
+            SqlCommand cmd = connect.CreateCommand();
+
+            cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
+            cmd.Parameters.AddWithValue("@Clave", usuario.Clave);
+
+            cmd.CommandText = sQuery;
+
+            cmd.ExecuteNonQuery();
+
+            connect.Close();
         }
 
-        public Usuario AutenticarUsuario(string nombre, string clave)
+        public List<Usuario> GetAllUsuarios()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM Usuario WHERE nombres = @Nombres AND claves = @Clave";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Nombres", nombre);
-                command.Parameters.AddWithValue("@Clave", HashPassword(clave));
+            List<Usuario> listaUsuarios = new List<Usuario>();
 
-                connection.Open();
-                using (SqlDataReader reader = command.ExecuteReader())
+            var connect = this.GetConexion();
+
+            SqlCommand cmd = connect.CreateCommand();
+
+            cmd.CommandText = "SELECT UsuarioID, Nombre, Clave FROM Usuarios";
+
+            SqlDataReader lector = cmd.ExecuteReader();
+
+            while (lector.Read())
+            {
+                Usuario usuario = new Usuario()
                 {
-                    if (reader.Read())
-                    {
-                        return new Usuario
-                        {
-                            Nombre = reader["nombres"].ToString()
-                        };
-                    }
-                    else
-                    {
-                        throw new AutenticacionFallidaException("Usuario o clave incorrecta.");
-                    }
-                }
+                    Nombre = lector.GetString(1),
+                    Clave = lector.GetString(2)
+                };
+                listaUsuarios.Add(usuario);
+
+                //Console.WriteLine($"{usuario.Nombre}, {usuario.Clave}");
             }
+
+            //Console.ReadKey();
+            connect.Close();
+
+            return listaUsuarios;
         }
 
-        private string HashPassword(string password)
+        public Usuario GetLoginUsuario(string nombre, string clave)
         {
-            using (var sha256 = SHA256.Create())
-            {
-                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-            }
-        }
+            Usuario usuarioEncontrado = null;
 
-        
+            var connect = this.GetConexion();
+
+            SqlCommand cmd = connect.CreateCommand();
+
+            cmd.CommandText = $"SELECT UsuarioID, Nombre, Clave FROM Usuarios WHERE Nombre = '{nombre}' AND Clave = '{clave}'";
+
+            SqlDataReader lector = cmd.ExecuteReader();
+
+            if (lector.Read()){
+                usuarioEncontrado = new Usuario()
+                {
+                    Nombre = lector.GetString(1),
+                    Clave = lector.GetString(2)
+                };
+
+            }
+
+            connect.Close();
+
+            return usuarioEncontrado;
+        }
     }
 }
+
