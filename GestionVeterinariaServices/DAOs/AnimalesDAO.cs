@@ -1,6 +1,7 @@
 ﻿using GestionVeterinariaServices.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -68,5 +69,27 @@ namespace GestionVeterinariaServices.DAOs
             //$"(nombres, edadesMadurez, pesosPromedio)" +
             //$"VALUES ({especie.Nombre}, {especie.Edad}, {especie.Peso})";
         }
+
+        public DataTable GetPrimerReporte(int edadMin, int edadMax)
+        {
+            string sQuery = "SELECT e.Nombre AS Especie, MIN(a.Peso) AS PesoMinimo, " +
+               "MAX(a.Peso) AS PesoMaximo, CAST(AVG(a.Peso) AS DECIMAL(10,2)) AS PesoPromedio " +
+               "FROM Animales a JOIN Especies e ON a.EspecieID = e.EspecieID " +
+               $"WHERE a.Edad BETWEEN {edadMin} AND {edadMax} " +
+               "GROUP BY e.Nombre;";
+            SqlConnection connect = this.GetConexion();
+
+            SqlCommand cmd = connect.CreateCommand();
+            
+            cmd.CommandText = sQuery;
+
+            SqlDataAdapter adapter = new SqlDataAdapter((SqlCommand)cmd);
+
+            DataTable dataTable = new DataTable();
+
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        } 
     }
 }
