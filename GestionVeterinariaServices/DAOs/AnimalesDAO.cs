@@ -94,17 +94,9 @@ namespace GestionVeterinariaServices.DAOs
         
         public DataTable GetSegundoReporte()
         {
-            string sQuery = "SELECT " +
-                           "    c.Nombre AS Cliente, " +
-                           "    COUNT(a.AnimalID) AS CantidadAnimales " +
-                           "FROM " +
-                           "    Animales a " +
-                           "JOIN " +
-                           "    Clientes c ON a.ClienteDNI = c.DNI " +
-                           "GROUP BY " +
-                           "    c.Nombre " +
-                           "ORDER BY " +
-                           "    CantidadAnimales ASC;";
+            string sQuery = "SELECT c.Nombre AS Cliente, COUNT(a.AnimalID) AS CantidadAnimales " +
+                "FROM Animales a JOIN Clientes c ON a.ClienteDNI = c.DNI " +
+                "GROUP BY c.Nombre ORDER BY CantidadAnimales ASC;";
 
             SqlConnection connect = this.GetConexion();
 

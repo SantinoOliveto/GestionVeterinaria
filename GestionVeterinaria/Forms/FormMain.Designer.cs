@@ -194,7 +194,7 @@
             this.txtBoxDNICliente.Name = "txtBoxDNICliente";
             this.txtBoxDNICliente.Size = new System.Drawing.Size(184, 20);
             this.txtBoxDNICliente.TabIndex = 1;
-            this.txtBoxDNICliente.Text = "Gestion Veterinaria";
+            this.txtBoxDNICliente.TextChanged += new System.EventHandler(this.txtBoxDNICliente_TextChanged);
             // 
             // label2
             // 
@@ -353,7 +353,7 @@
             this.Controls.Add(this.grpBoxCliente);
             this.Controls.Add(this.label1);
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "Gestion Veterinaria";
             this.grpBoxEspecie.ResumeLayout(false);
             this.grpBoxEspecie.PerformLayout();
             this.grpBoxCliente.ResumeLayout(false);

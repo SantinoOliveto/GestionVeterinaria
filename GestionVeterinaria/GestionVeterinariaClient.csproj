@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormAltas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormAltas.Designer.cs">
-      <DependentUpon>FormAltas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormReporte1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,9 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FormAltas.resx">
-      <DependentUpon>FormAltas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReporte1.resx">
       <DependentUpon>FormReporte1.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionVeterinariaServices\GestionVeterinariaServices.csproj">
+      <Project>{6DE8C644-01A4-48AE-8924-93F2CEC2E81C}</Project>
+      <Name>GestionVeterinariaServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

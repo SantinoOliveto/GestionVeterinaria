@@ -21,5 +21,10 @@ namespace GestionVeterinaria.Forms
         {
 
         }
+
+        private void txtBoxDNICliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

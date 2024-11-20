@@ -32,15 +32,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBoxRepetirClaveUsuario = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnRegistrarse = new System.Windows.Forms.Button();
             this.txtBoxClaveUsuario = new System.Windows.Forms.TextBox();
             this.txtBoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnIniciarSesion = new System.Windows.Forms.Button();
+            this.txtBoxClaveLogin = new System.Windows.Forms.TextBox();
+            this.txtBoxUsuarioLogin = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -80,6 +82,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtBoxRepetirClaveUsuario);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnRegistrarse);
             this.groupBox1.Controls.Add(this.txtBoxClaveUsuario);
             this.groupBox1.Controls.Add(this.txtBoxNombreUsuario);
@@ -92,6 +96,23 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // txtBoxRepetirClaveUsuario
+            // 
+            this.txtBoxRepetirClaveUsuario.Location = new System.Drawing.Point(33, 228);
+            this.txtBoxRepetirClaveUsuario.Name = "txtBoxRepetirClaveUsuario";
+            this.txtBoxRepetirClaveUsuario.Size = new System.Drawing.Size(314, 20);
+            this.txtBoxRepetirClaveUsuario.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label8.Location = new System.Drawing.Point(124, 208);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(129, 17);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Repetir contraseña";
+            // 
             // btnRegistrarse
             // 
             this.btnRegistrarse.Location = new System.Drawing.Point(135, 290);
@@ -100,10 +121,11 @@
             this.btnRegistrarse.TabIndex = 7;
             this.btnRegistrarse.Text = "Registrarse";
             this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // txtBoxClaveUsuario
             // 
-            this.txtBoxClaveUsuario.Location = new System.Drawing.Point(33, 204);
+            this.txtBoxClaveUsuario.Location = new System.Drawing.Point(33, 167);
             this.txtBoxClaveUsuario.Name = "txtBoxClaveUsuario";
             this.txtBoxClaveUsuario.Size = new System.Drawing.Size(314, 20);
             this.txtBoxClaveUsuario.TabIndex = 6;
@@ -119,7 +141,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(144, 184);
+            this.label5.Location = new System.Drawing.Point(144, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 17);
             this.label5.TabIndex = 5;
@@ -137,9 +159,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.btnIniciarSesion);
+            this.groupBox2.Controls.Add(this.txtBoxClaveLogin);
+            this.groupBox2.Controls.Add(this.txtBoxUsuarioLogin);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label3);
@@ -149,28 +171,29 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
-            // button1
+            // btnIniciarSesion
             // 
-            this.button1.Location = new System.Drawing.Point(144, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 38);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Iniciar Sesion";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(144, 290);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(102, 38);
+            this.btnIniciarSesion.TabIndex = 12;
+            this.btnIniciarSesion.Text = "Iniciar Sesion";
+            this.btnIniciarSesion.UseVisualStyleBackColor = true;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
-            // textBox1
+            // txtBoxClaveLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(42, 204);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtBoxClaveLogin.Location = new System.Drawing.Point(42, 204);
+            this.txtBoxClaveLogin.Name = "txtBoxClaveLogin";
+            this.txtBoxClaveLogin.Size = new System.Drawing.Size(314, 20);
+            this.txtBoxClaveLogin.TabIndex = 11;
             // 
-            // textBox2
+            // txtBoxUsuarioLogin
             // 
-            this.textBox2.Location = new System.Drawing.Point(42, 100);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(314, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtBoxUsuarioLogin.Location = new System.Drawing.Point(42, 100);
+            this.txtBoxUsuarioLogin.Name = "txtBoxUsuarioLogin";
+            this.txtBoxUsuarioLogin.Size = new System.Drawing.Size(314, 20);
+            this.txtBoxUsuarioLogin.TabIndex = 9;
             // 
             // label6
             // 
@@ -202,6 +225,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormLogin";
             this.Text = "Gestion Veterinaria";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -223,11 +247,13 @@
         private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.TextBox txtBoxClaveUsuario;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnIniciarSesion;
+        private System.Windows.Forms.TextBox txtBoxClaveLogin;
+        private System.Windows.Forms.TextBox txtBoxUsuarioLogin;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtBoxRepetirClaveUsuario;
+        private System.Windows.Forms.Label label8;
     }
 }
 
