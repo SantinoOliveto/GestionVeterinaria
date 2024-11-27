@@ -17,6 +17,7 @@ namespace GestionVeterinaria.Forms
     public partial class FormMain : Form
     {
         private readonly ClientesDAO _clientesDAO;
+        private readonly AnimalesDAO _animalesDAO;
         private readonly EspeciesDAO _especiesDAO;
         private List<Cliente> _listaClientes;
         private List<Especie> _listaEspecies;
@@ -27,6 +28,7 @@ namespace GestionVeterinaria.Forms
             this._listaClientes = new List<Cliente>();
             this._especiesDAO = new EspeciesDAO();
             this._listaEspecies = new List<Especie>();
+            this._animalesDAO = new AnimalesDAO();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -186,33 +188,34 @@ namespace GestionVeterinaria.Forms
 
         private void btnAltaAnimal_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(txtBoxNombreAnimal.Text) || String.IsNullOrEmpty(txtBoxPesoAnimal.Text) || String.IsNullOrEmpty(txtBoxEdadAnimal.Text))
+            {
+                MessageBox.Show("Faltan rellenar campos.");
+                LimpiarCampos3();
+                return;
+            }
             try
             {
-                if (String.IsNullOrEmpty(txtBoxNombreAnimal.Text) || String.IsNullOrEmpty(txtBoxPesoAnimal.Text) || String.IsNullOrEmpty(txtBoxEdadAnimal.Text))
-                {
-                    MessageBox.Show("Faltan rellenar campos.");
-                    LimpiarCampos3();
-                    return;
-                }
 
                 Cliente cliente = (Cliente)cmbBoxCliente.SelectedValue;
                 Especie especie = (Especie)cmbBoxEspecie.SelectedValue;
                 string nombre = txtBoxNombreAnimal.Text.ToLower();
-                string sEdad = txtBoxEdadAnimal.Text.ToLower();
-                string sPeso = txtBoxPesoAnimal.Text.ToLower();
+                string sEdad = txtBoxEdadAnimal.Text;
+                string sPeso = txtBoxPesoAnimal.Text;
 
-                int EdadAnimal = int.Parse(sEdad);
-                decimal PesoAnimal = decimal.Parse(sPeso);
+                int Edad = int.Parse(sEdad);
+                decimal Peso = decimal.Parse(sPeso);
 
-                if (EdadAnimal >= 0)
+                if (Edad <= 0)
                 {
                     throw new EdadMadurezNegativaOCeroException(sEdad);
                 }
-                if (PesoAnimal >= 0)
+                if (Peso <= 0)
                 {
                     throw new PesoPromedioNegativoOCeroException(sPeso);
                 }
-
+                Animal animal = new Animal(cliente.DNI,nombre,Peso,Edad);
+                _animalesDAO.InsertAnimal(animal);
 
             }
             catch (EdadMadurezNegativaOCeroException EMex)

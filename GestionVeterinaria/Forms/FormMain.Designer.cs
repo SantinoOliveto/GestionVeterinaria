@@ -110,11 +110,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(74, 167);
+            this.label6.Location = new System.Drawing.Point(64, 167);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 17);
+            this.label6.Size = new System.Drawing.Size(138, 17);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Peso Promedio";
+            this.label6.Text = "Peso Promedio (KG)";
             // 
             // txtBoxEdadMadurezEspecie
             // 
@@ -268,11 +268,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label11.Location = new System.Drawing.Point(78, 36);
+            this.label11.Location = new System.Drawing.Point(95, 36);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 17);
+            this.label11.Size = new System.Drawing.Size(55, 17);
             this.label11.TabIndex = 16;
-            this.label11.Text = "DNI del Cliente";
+            this.label11.Text = " Cliente";
             // 
             // txtBoxPesoAnimal
             // 
@@ -285,11 +285,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(106, 299);
+            this.label7.Location = new System.Drawing.Point(95, 299);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 17);
+            this.label7.Size = new System.Drawing.Size(74, 17);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Peso";
+            this.label7.Text = "Peso (KG)";
             // 
             // txtBoxEdadAnimal
             // 
