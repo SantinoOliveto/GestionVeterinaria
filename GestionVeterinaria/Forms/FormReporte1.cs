@@ -18,6 +18,7 @@ namespace GestionVeterinaria.Forms
         {
             InitializeComponent();
             this._animalesDAO = new AnimalesDAO();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnFiltrarEdades_Click(object sender, EventArgs e)
@@ -56,6 +57,7 @@ namespace GestionVeterinaria.Forms
         private void btnVolverMenu1_Click(object sender, EventArgs e)
         {
             var mainForm = new FormMain();
+            mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
             this.Hide();
         }

@@ -53,7 +53,7 @@
             this.dgvInforme2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInforme2.Location = new System.Drawing.Point(368, 101);
             this.dgvInforme2.Name = "dgvInforme2";
-            this.dgvInforme2.Size = new System.Drawing.Size(542, 445);
+            this.dgvInforme2.Size = new System.Drawing.Size(599, 445);
             this.dgvInforme2.TabIndex = 9;
             // 
             // groupBox1
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 558);
+            this.ClientSize = new System.Drawing.Size(979, 552);
             this.Controls.Add(this.btnVolverMenu2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvInforme2);

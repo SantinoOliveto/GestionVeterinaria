@@ -22,15 +22,7 @@ namespace GestionVeterinaria
             InitializeComponent();
             this._usuariosDAO = new UsuariosDAO();
             this._listaUsuarios = new List<Usuario>();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        { 
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
@@ -101,6 +93,7 @@ namespace GestionVeterinaria
                 {
                     MessageBox.Show("Se inicio sesion correctamente.");
                     var mainForm = new FormMain();
+                    mainForm.StartPosition = FormStartPosition.CenterScreen;
                     mainForm.Show();
                     this.Hide();
                     return;
@@ -111,5 +104,6 @@ namespace GestionVeterinaria
             txtBoxUsuarioLogin.Clear();
             txtBoxClaveLogin.Clear();
         }
+        
     }
 }

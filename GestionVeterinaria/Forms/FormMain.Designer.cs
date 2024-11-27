@@ -67,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label1.Location = new System.Drawing.Point(288, 9);
+            this.label1.Location = new System.Drawing.Point(346, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(308, 39);
             this.label1.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.grpBoxEspecie.Controls.Add(this.label4);
             this.grpBoxEspecie.Controls.Add(this.txtBoxNombreEspecie);
             this.grpBoxEspecie.Controls.Add(this.label5);
-            this.grpBoxEspecie.Location = new System.Drawing.Point(304, 76);
+            this.grpBoxEspecie.Location = new System.Drawing.Point(362, 76);
             this.grpBoxEspecie.Name = "grpBoxEspecie";
             this.grpBoxEspecie.Size = new System.Drawing.Size(257, 283);
             this.grpBoxEspecie.TabIndex = 2;
@@ -157,7 +157,7 @@
             this.grpBoxCliente.Controls.Add(this.label3);
             this.grpBoxCliente.Controls.Add(this.txtBoxDNICliente);
             this.grpBoxCliente.Controls.Add(this.label2);
-            this.grpBoxCliente.Location = new System.Drawing.Point(21, 76);
+            this.grpBoxCliente.Location = new System.Drawing.Point(79, 76);
             this.grpBoxCliente.Name = "grpBoxCliente";
             this.grpBoxCliente.Size = new System.Drawing.Size(257, 216);
             this.grpBoxCliente.TabIndex = 3;
@@ -221,7 +221,7 @@
             this.grpBoxAnimales.Controls.Add(this.label8);
             this.grpBoxAnimales.Controls.Add(this.txtBoxNombreAnimal);
             this.grpBoxAnimales.Controls.Add(this.label9);
-            this.grpBoxAnimales.Location = new System.Drawing.Point(591, 76);
+            this.grpBoxAnimales.Location = new System.Drawing.Point(649, 76);
             this.grpBoxAnimales.Name = "grpBoxAnimales";
             this.grpBoxAnimales.Size = new System.Drawing.Size(264, 441);
             this.grpBoxAnimales.TabIndex = 4;
@@ -327,7 +327,7 @@
             // 
             // btnFormInforme1
             // 
-            this.btnFormInforme1.Location = new System.Drawing.Point(28, 404);
+            this.btnFormInforme1.Location = new System.Drawing.Point(79, 404);
             this.btnFormInforme1.Name = "btnFormInforme1";
             this.btnFormInforme1.Size = new System.Drawing.Size(126, 50);
             this.btnFormInforme1.TabIndex = 5;
@@ -337,7 +337,7 @@
             // 
             // btnFormInforme2
             // 
-            this.btnFormInforme2.Location = new System.Drawing.Point(28, 467);
+            this.btnFormInforme2.Location = new System.Drawing.Point(79, 467);
             this.btnFormInforme2.Name = "btnFormInforme2";
             this.btnFormInforme2.Size = new System.Drawing.Size(126, 50);
             this.btnFormInforme2.TabIndex = 6;
@@ -347,7 +347,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(160, 435);
+            this.btnActualizar.Location = new System.Drawing.Point(211, 435);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(126, 50);
             this.btnActualizar.TabIndex = 7;
@@ -359,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 542);
+            this.ClientSize = new System.Drawing.Size(979, 552);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnFormInforme2);
             this.Controls.Add(this.btnFormInforme1);

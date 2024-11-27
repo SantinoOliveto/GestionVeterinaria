@@ -18,11 +18,13 @@ namespace GestionVeterinaria.Forms
         {
             InitializeComponent();
             this._animalesDAO = new AnimalesDAO();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnVolverMenu2_Click(object sender, EventArgs e)
         {
             var mainForm = new FormMain();
+            mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
             this.Hide();
         }

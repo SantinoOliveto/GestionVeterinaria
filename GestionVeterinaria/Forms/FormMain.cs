@@ -63,6 +63,7 @@ namespace GestionVeterinaria.Forms
         {
             var infForm1 = new FormReporte1();
             infForm1.Show();
+            infForm1.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
         }
 
@@ -70,6 +71,7 @@ namespace GestionVeterinaria.Forms
         {
             var infForm2 = new FormReporte2();
             infForm2.Show();
+            infForm2.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
         }
 
@@ -155,20 +157,21 @@ namespace GestionVeterinaria.Forms
                     throw new PesoPromedioNegativoOCeroException(sPesoPromedio);
                 }
 
-                Especie especie = new Especie(nombre, EdadMad, PesoPromedio);
-                _listaEspecies = _especiesDAO.GetAllEspecies();
-                cmbBoxEspecie.DataSource = null;
-                cmbBoxEspecie.DataSource = _listaEspecies;
-
                 foreach (Especie especie1 in _listaEspecies)
                 {
-                    if(especie1.Nombre == nombre)
+                    if (especie1.Nombre == nombre)
                     {
                         MessageBox.Show($"La especie de nombre {nombre} ya esta cargada en el sistema.");
                         LimpiarCampos2();
                         return;
                     }
                 }
+
+                Especie especie = new Especie(nombre, EdadMad, PesoPromedio);
+                _listaEspecies = _especiesDAO.GetAllEspecies();
+                cmbBoxEspecie.DataSource = null;
+                cmbBoxEspecie.DataSource = _listaEspecies;
+
                 _especiesDAO.InsertEspecie(especie);
                 MessageBox.Show($"La especie {especie.Nombre} se cargo en el sistema.");
                 LimpiarCampos2();
