@@ -57,6 +57,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnFormInforme1 = new System.Windows.Forms.Button();
             this.btnFormInforme2 = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.grpBoxEspecie.SuspendLayout();
             this.grpBoxCliente.SuspendLayout();
             this.grpBoxAnimales.SuspendLayout();
@@ -235,6 +236,7 @@
             this.btnAltaAnimal.TabIndex = 22;
             this.btnAltaAnimal.Text = "Cargar";
             this.btnAltaAnimal.UseVisualStyleBackColor = true;
+            this.btnAltaAnimal.Click += new System.EventHandler(this.btnAltaAnimal_Click);
             // 
             // cmbBoxEspecie
             // 
@@ -343,11 +345,22 @@
             this.btnFormInforme2.UseVisualStyleBackColor = true;
             this.btnFormInforme2.Click += new System.EventHandler(this.btnFormInforme2_Click);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(160, 435);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(126, 50);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 542);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnFormInforme2);
             this.Controls.Add(this.btnFormInforme1);
             this.Controls.Add(this.grpBoxEspecie);
@@ -356,6 +369,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormMain";
             this.Text = "Gestion Veterinaria";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.grpBoxEspecie.ResumeLayout(false);
             this.grpBoxEspecie.PerformLayout();
             this.grpBoxCliente.ResumeLayout(false);
@@ -398,5 +412,6 @@
         private System.Windows.Forms.Button btnAltaAnimal;
         private System.Windows.Forms.Button btnFormInforme1;
         private System.Windows.Forms.Button btnFormInforme2;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

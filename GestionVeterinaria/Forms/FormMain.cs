@@ -29,6 +29,15 @@ namespace GestionVeterinaria.Forms
             this._listaEspecies = new List<Especie>();
         }
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            _listaClientes = _clientesDAO.GetAllClientes();
+            cmbBoxCliente.DataSource = _listaClientes;
+
+            _listaEspecies = _especiesDAO.GetAllEspecies();
+            cmbBoxEspecie.DataSource = _listaEspecies;
+        }
+
         public void LimpiarCampos1()
         {
             this.txtBoxDNICliente.Clear();
@@ -39,6 +48,13 @@ namespace GestionVeterinaria.Forms
             this.txtBoxEdadMadurezEspecie.Clear();
             this.txtBoxNombreEspecie.Clear();
             this.txtBoxPesoPromedioEspecie.Clear();
+        }
+
+        public void LimpiarCampos3()
+        {
+            txtBoxNombreAnimal.Clear();
+            txtBoxEdadAnimal.Clear();
+            txtBoxPesoAnimal.Clear();
         }
 
         private void btnFormInforme1_Click(object sender, EventArgs e)
@@ -67,9 +83,9 @@ namespace GestionVeterinaria.Forms
 
             try
             {
-                string sDNI = txtBoxDNICliente.Text;
+                string sDNI = txtBoxDNICliente.Text.ToLower();
                 int DNI = int.Parse(sDNI);
-                string nombre = txtBoxNombreCliente.Text;
+                string nombre = txtBoxNombreCliente.Text.ToLower();
 
                 if (DNI < 0)
                 {
@@ -78,6 +94,8 @@ namespace GestionVeterinaria.Forms
 
                 Cliente cliente = new Cliente(DNI, nombre);
                 _listaClientes = _clientesDAO.GetAllClientes();
+                cmbBoxCliente.DataSource = null;
+                cmbBoxCliente.DataSource = _listaClientes;
 
                 foreach (Cliente clienteB in _listaClientes)
                 {
@@ -89,6 +107,7 @@ namespace GestionVeterinaria.Forms
                     }
                 }
                 _clientesDAO.InsertCliente(cliente);
+                MessageBox.Show($"El cliente {cliente.DNI}, {cliente.Nombre} se cargo correctamente.");
                 LimpiarCampos1();
             }
             catch (FormatException fEX)
@@ -104,15 +123,23 @@ namespace GestionVeterinaria.Forms
 
         }
 
-        
+
 
         private void btnAltaEspecie_Click(object sender, EventArgs e)
         {
+
+            if (String.IsNullOrEmpty(txtBoxNombreEspecie.Text) || String.IsNullOrEmpty(txtBoxPesoPromedioEspecie.Text) || String.IsNullOrEmpty(txtBoxEdadMadurezEspecie.Text))
+            {
+                MessageBox.Show("Faltan rellenar campos.");
+                LimpiarCampos2();
+                return;
+            }
+
             try
             {
-                string nombre = txtBoxNombreEspecie.Text;
-                string sPesoPromedio = txtBoxPesoPromedioEspecie.Text;
-                string sEdadMad = txtBoxEdadMadurezEspecie.Text;
+                string nombre = txtBoxNombreEspecie.Text.ToLower();
+                string sPesoPromedio = txtBoxPesoPromedioEspecie.Text.ToLower();
+                string sEdadMad = txtBoxEdadMadurezEspecie.Text.ToLower();
 
                 decimal PesoPromedio = decimal.Parse(sPesoPromedio);
                 int EdadMad = int.Parse(sEdadMad);
@@ -125,16 +152,89 @@ namespace GestionVeterinaria.Forms
                 {
                     throw new PesoPromedioNegativoOCeroException(sPesoPromedio);
                 }
+
+                Especie especie = new Especie(nombre, EdadMad, PesoPromedio);
+                _listaEspecies = _especiesDAO.GetAllEspecies();
+                cmbBoxEspecie.DataSource = null;
+                cmbBoxEspecie.DataSource = _listaEspecies;
+
+                foreach (Especie especie1 in _listaEspecies)
+                {
+                    if(especie1.Nombre == nombre)
+                    {
+                        MessageBox.Show($"La especie de nombre {nombre} ya esta cargada en el sistema.");
+                        LimpiarCampos2();
+                        return;
+                    }
+                }
+                _especiesDAO.InsertEspecie(especie);
+                MessageBox.Show($"La especie {especie.Nombre} se cargo en el sistema.");
+                LimpiarCampos2();
             }
             catch (EdadMadurezNegativaOCeroException EMex)
             {
                 MessageBox.Show("La edad de madurez debe ser positiva");
+                LimpiarCampos2();
             }
             catch (PesoPromedioNegativoOCeroException PPex)
             {
                 MessageBox.Show("El peso promedio debe ser positivo");
+                LimpiarCampos2();
             }
 
+        }
+
+        private void btnAltaAnimal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(txtBoxNombreAnimal.Text) || String.IsNullOrEmpty(txtBoxPesoAnimal.Text) || String.IsNullOrEmpty(txtBoxEdadAnimal.Text))
+                {
+                    MessageBox.Show("Faltan rellenar campos.");
+                    LimpiarCampos3();
+                    return;
+                }
+
+                Cliente cliente = (Cliente)cmbBoxCliente.SelectedValue;
+                Especie especie = (Especie)cmbBoxEspecie.SelectedValue;
+                string nombre = txtBoxNombreAnimal.Text.ToLower();
+                string sEdad = txtBoxEdadAnimal.Text.ToLower();
+                string sPeso = txtBoxPesoAnimal.Text.ToLower();
+
+                int EdadAnimal = int.Parse(sEdad);
+                decimal PesoAnimal = decimal.Parse(sPeso);
+
+                if (EdadAnimal >= 0)
+                {
+                    throw new EdadMadurezNegativaOCeroException(sEdad);
+                }
+                if (PesoAnimal >= 0)
+                {
+                    throw new PesoPromedioNegativoOCeroException(sPeso);
+                }
+
+
+            }
+            catch (EdadMadurezNegativaOCeroException EMex)
+            {
+                MessageBox.Show("La edad del animal debe ser positiva.");
+                LimpiarCampos3();
+            }
+            catch (PesoPromedioNegativoOCeroException PPex)
+            {
+                MessageBox.Show("El peso del animal debe ser positivo.");
+                LimpiarCampos3();
+            }
+            
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            _listaClientes = _clientesDAO.GetAllClientes();
+            cmbBoxCliente.DataSource = _listaClientes;
+
+            _listaEspecies = _especiesDAO.GetAllEspecies();
+            cmbBoxEspecie.DataSource = _listaEspecies;
         }
     }
 }

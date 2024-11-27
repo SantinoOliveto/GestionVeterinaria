@@ -20,5 +20,10 @@ namespace GestionVeterinariaServices.Models
         public Cliente()
         {
         }
+
+        public override string ToString()
+        {
+            return $"{DNI}, {Nombre}";
+        }
     }
 }

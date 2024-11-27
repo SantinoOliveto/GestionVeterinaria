@@ -20,5 +20,10 @@ namespace GestionVeterinariaServices.Models
         }
 
         public Especie() { }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }
