@@ -199,6 +199,7 @@ namespace GestionVeterinaria.Forms
 
                 Cliente cliente = (Cliente)cmbBoxCliente.SelectedValue;
                 Especie especie = (Especie)cmbBoxEspecie.SelectedValue;
+                
                 string nombre = txtBoxNombreAnimal.Text.ToLower();
                 string sEdad = txtBoxEdadAnimal.Text;
                 string sPeso = txtBoxPesoAnimal.Text;
@@ -214,9 +215,10 @@ namespace GestionVeterinaria.Forms
                 {
                     throw new PesoPromedioNegativoOCeroException(sPeso);
                 }
-                Animal animal = new Animal(cliente.DNI,nombre,Peso,Edad);
+                Animal animal = new Animal(cliente.DNI,especie.Id,nombre,Peso,Edad);
                 _animalesDAO.InsertAnimal(animal);
-
+                MessageBox.Show($"El animal {animal.Nombre} se cargo en el sistema.");
+                LimpiarCampos3();
             }
             catch (EdadMadurezNegativaOCeroException EMex)
             {

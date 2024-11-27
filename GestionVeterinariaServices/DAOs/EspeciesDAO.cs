@@ -28,9 +28,7 @@ namespace GestionVeterinariaServices.DAOs
 
             connect.Close();
 
-            //string sQuery = $"INSERT INTO Especie" +
-            //$"(nombres, edadesMadurez, pesosPromedio)" +
-            //$"VALUES ({especie.Nombre}, {especie.Edad}, {especie.Peso})";
+            
         }
 
         public List<Especie> GetAllEspecies()
@@ -41,7 +39,7 @@ namespace GestionVeterinariaServices.DAOs
 
             SqlCommand cmd = connect.CreateCommand();
 
-            cmd.CommandText = "SELECT Nombre, EdadMadurez, PesoPromedio" +
+            cmd.CommandText = "SELECT EspecieID, Nombre, EdadMadurez, PesoPromedio" +
                 " FROM Especies";
 
             SqlDataReader lector = cmd.ExecuteReader();
@@ -49,10 +47,10 @@ namespace GestionVeterinariaServices.DAOs
             while(lector.Read())
             {
                 Especie especie = new Especie();
-
-                especie.Nombre = lector.GetString(0);
-                especie.EdadMadurez = lector.GetInt32(1);
-                especie.PesoPromedio = lector.GetDecimal(2);
+                especie.Id = lector.GetInt32(0);
+                especie.Nombre = lector.GetString(1);
+                especie.EdadMadurez = lector.GetInt32(2);
+                especie.PesoPromedio = lector.GetDecimal(3);
                 
                 listaEspecies.Add(especie);
             }

@@ -27,10 +27,10 @@ namespace GestionVeterinariaServices.DAOs
             {
                 Animal animal = new Animal()
                 {
-                    Nombre = lector.GetString(1),   // Debe ser string
-                    Peso = lector.GetDecimal(2),    // Mantiene Peso como decimal
-                    Edad = lector.GetInt32(3),      // Debe ser int
-                    ClienteDNI = lector.GetInt32(4), // Debe ser int
+                    Nombre = lector.GetString(1),  
+                    Peso = lector.GetDecimal(2),    
+                    Edad = lector.GetInt32(3),      
+                    ClienteDNI = lector.GetInt32(4), 
                     EspecieID = lector.GetInt32(5)
 
                 };
@@ -65,9 +65,6 @@ namespace GestionVeterinariaServices.DAOs
 
             connect.Close();
 
-            //string sQuery = $"INSERT INTO Especie" +
-            //$"(nombres, edadesMadurez, pesosPromedio)" +
-            //$"VALUES ({especie.Nombre}, {especie.Edad}, {especie.Peso})";
         }
 
         public DataTable GetPrimerReporte(int edadMin, int edadMax)

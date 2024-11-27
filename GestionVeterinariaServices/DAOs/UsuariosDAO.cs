@@ -53,10 +53,10 @@ namespace GestionVeterinariaServices.DAOs
                 };
                 listaUsuarios.Add(usuario);
 
-                //Console.WriteLine($"{usuario.Nombre}, {usuario.Clave}");
+                
             }
 
-            //Console.ReadKey();
+            
             connect.Close();
 
             return listaUsuarios;
