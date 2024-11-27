@@ -50,7 +50,7 @@
     <Compile Include="DAOs\UsuariosDAO.cs" />
     <Compile Include="Exceptions\AutenticacionFallidaException.cs" />
     <Compile Include="Exceptions\DNINegativoException.cs" />
-    <Compile Include="Exceptions\EdadMadurezNegativaOCeroException.cs" />
+    <Compile Include="Exceptions\EdadNegativaOCeroException.cs" />
     <Compile Include="Exceptions\PesoPromedioNegativoOCeroException.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Cliente.cs" />

@@ -16,19 +16,29 @@ namespace GestionVeterinaria.Forms
 {
     public partial class FormMain : Form
     {
-        private readonly ClientesDAO _clientesDAO;
-        private readonly AnimalesDAO _animalesDAO;
-        private readonly EspeciesDAO _especiesDAO;
+        private ClientesDAO _clientesDAO;
+        private AnimalesDAO _animalesDAO;
+        private EspeciesDAO _especiesDAO;
         private List<Cliente> _listaClientes;
         private List<Especie> _listaEspecies;
+
+        public void CrearDaos()
+        {
+            this._animalesDAO = new AnimalesDAO();
+            this._especiesDAO = new EspeciesDAO();
+            this._clientesDAO = new ClientesDAO();
+        }
+
+        private void CrearListas()
+        {
+            this._listaClientes = new List<Cliente>();
+            this._listaEspecies = new List<Especie>();
+        }
         public FormMain()
         {
             InitializeComponent();
-            this._clientesDAO = new ClientesDAO();
-            this._listaClientes = new List<Cliente>();
-            this._especiesDAO = new EspeciesDAO();
-            this._listaEspecies = new List<Especie>();
-            this._animalesDAO = new AnimalesDAO();
+            CrearDaos();
+            CrearListas();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -40,23 +50,23 @@ namespace GestionVeterinaria.Forms
             cmbBoxEspecie.DataSource = _listaEspecies;
         }
 
-        public void LimpiarCampos1()
+        public void LimpiarCamposCliente()
         {
             this.txtBoxDNICliente.Clear();
             this.txtBoxNombreCliente.Clear();
         }
-        public void LimpiarCampos2()
+        public void LimpiarCamposEspecie()
         {
             this.txtBoxEdadMadurezEspecie.Clear();
             this.txtBoxNombreEspecie.Clear();
             this.txtBoxPesoPromedioEspecie.Clear();
         }
 
-        public void LimpiarCampos3()
+        public void LimpiarCamposAnimal()
         {
-            txtBoxNombreAnimal.Clear();
-            txtBoxEdadAnimal.Clear();
-            txtBoxPesoAnimal.Clear();
+            this.txtBoxNombreAnimal.Clear();
+            this.txtBoxEdadAnimal.Clear();
+            this.txtBoxPesoAnimal.Clear();
         }
 
         private void btnFormInforme1_Click(object sender, EventArgs e)
@@ -80,7 +90,7 @@ namespace GestionVeterinaria.Forms
             if (String.IsNullOrEmpty(txtBoxNombreCliente.Text) || String.IsNullOrEmpty(txtBoxDNICliente.Text))
             {
                 MessageBox.Show("Faltan rellenar campos.");
-                LimpiarCampos1();
+                LimpiarCamposCliente();
                 return;
             }
 
@@ -106,23 +116,23 @@ namespace GestionVeterinaria.Forms
                     if (cliente.DNI == clienteB.DNI)
                     {
                         MessageBox.Show($"El DNI {clienteB.DNI} ya existe");
-                        LimpiarCampos1();
+                        LimpiarCamposCliente();
 
                     }
                 }
                 _clientesDAO.InsertCliente(cliente);
                 MessageBox.Show($"El cliente {cliente.DNI}, {cliente.Nombre} se cargo correctamente.");
-                LimpiarCampos1();
+                LimpiarCamposCliente();
             }
             catch (FormatException fEX)
             {
                 MessageBox.Show("El DNI debe ser un número válido.");
-                LimpiarCampos1();
+                LimpiarCamposCliente();
             }
             catch (DNINegativoException DNegEx)
             {
                 MessageBox.Show("El DNI no puede ser negativo");
-                LimpiarCampos1();
+                LimpiarCamposCliente();
             }
 
         }
@@ -135,7 +145,7 @@ namespace GestionVeterinaria.Forms
             if (String.IsNullOrEmpty(txtBoxNombreEspecie.Text) || String.IsNullOrEmpty(txtBoxPesoPromedioEspecie.Text) || String.IsNullOrEmpty(txtBoxEdadMadurezEspecie.Text))
             {
                 MessageBox.Show("Faltan rellenar campos.");
-                LimpiarCampos2();
+                LimpiarCamposEspecie();
                 return;
             }
 
@@ -150,7 +160,7 @@ namespace GestionVeterinaria.Forms
 
                 if (EdadMad <= 0)
                 {
-                    throw new EdadMadurezNegativaOCeroException(sEdadMad);
+                    throw new EdadNegativaOCeroException(sEdadMad);
                 }
                 if (PesoPromedio <= 0)
                 {
@@ -162,7 +172,7 @@ namespace GestionVeterinaria.Forms
                     if (especie1.Nombre == nombre)
                     {
                         MessageBox.Show($"La especie de nombre {nombre} ya esta cargada en el sistema.");
-                        LimpiarCampos2();
+                        LimpiarCamposEspecie();
                         return;
                     }
                 }
@@ -174,17 +184,17 @@ namespace GestionVeterinaria.Forms
 
                 _especiesDAO.InsertEspecie(especie);
                 MessageBox.Show($"La especie {especie.Nombre} se cargo en el sistema.");
-                LimpiarCampos2();
+                LimpiarCamposEspecie();
             }
-            catch (EdadMadurezNegativaOCeroException EMex)
+            catch (EdadNegativaOCeroException EMex)
             {
                 MessageBox.Show("La edad de madurez debe ser positiva");
-                LimpiarCampos2();
+                LimpiarCamposEspecie();
             }
             catch (PesoPromedioNegativoOCeroException PPex)
             {
                 MessageBox.Show("El peso promedio debe ser positivo");
-                LimpiarCampos2();
+                LimpiarCamposEspecie();
             }
 
         }
@@ -194,7 +204,7 @@ namespace GestionVeterinaria.Forms
             if (String.IsNullOrEmpty(txtBoxNombreAnimal.Text) || String.IsNullOrEmpty(txtBoxPesoAnimal.Text) || String.IsNullOrEmpty(txtBoxEdadAnimal.Text))
             {
                 MessageBox.Show("Faltan rellenar campos.");
-                LimpiarCampos3();
+                LimpiarCamposAnimal();
                 return;
             }
             try
@@ -212,7 +222,7 @@ namespace GestionVeterinaria.Forms
 
                 if (Edad <= 0)
                 {
-                    throw new EdadMadurezNegativaOCeroException(sEdad);
+                    throw new EdadNegativaOCeroException(sEdad);
                 }
                 if (Peso <= 0)
                 {
@@ -221,17 +231,17 @@ namespace GestionVeterinaria.Forms
                 Animal animal = new Animal(cliente.DNI,especie.Id,nombre,Peso,Edad);
                 _animalesDAO.InsertAnimal(animal);
                 MessageBox.Show($"El animal {animal.Nombre} se cargo en el sistema.");
-                LimpiarCampos3();
+                LimpiarCamposAnimal();
             }
-            catch (EdadMadurezNegativaOCeroException EMex)
+            catch (EdadNegativaOCeroException EMex)
             {
                 MessageBox.Show("La edad del animal debe ser positiva.");
-                LimpiarCampos3();
+                LimpiarCamposAnimal();
             }
             catch (PesoPromedioNegativoOCeroException PPex)
             {
                 MessageBox.Show("El peso del animal debe ser positivo.");
-                LimpiarCampos3();
+                LimpiarCamposAnimal();
             }
             
         }

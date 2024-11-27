@@ -25,14 +25,25 @@ namespace GestionVeterinaria
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void LimpiarCamposRegistro()
+        {
+            txtBoxNombreUsuario.Clear();
+            txtBoxClaveUsuario.Clear();
+            txtBoxRepetirClaveUsuario.Clear();
+        }
+
+        private void LimpiarCamposLogin()
+        {
+            txtBoxUsuarioLogin.Clear();
+            txtBoxClaveLogin.Clear();
+        }
+
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtBoxNombreUsuario.Text) || String.IsNullOrEmpty(txtBoxClaveUsuario.Text) || String.IsNullOrEmpty(txtBoxRepetirClaveUsuario.Text))
             {
                 MessageBox.Show("Faltan rellenar campos.");
-                txtBoxNombreUsuario.Clear();
-                txtBoxClaveUsuario.Clear();
-                txtBoxRepetirClaveUsuario.Clear();
+                LimpiarCamposRegistro();
                 return;
             }
 
@@ -54,9 +65,7 @@ namespace GestionVeterinaria
                 if (usuario.Nombre.ToLower() == nombre)
                 {
                     MessageBox.Show($"Ya existe el usuario: {usuario.Nombre}.");
-                    txtBoxNombreUsuario.Clear();
-                    txtBoxClaveUsuario.Clear();
-                    txtBoxRepetirClaveUsuario.Clear();
+                    LimpiarCamposRegistro();
                     return;
                 }
             }
@@ -67,9 +76,7 @@ namespace GestionVeterinaria
 
             MessageBox.Show("El usuario se registro correctamente");
 
-            txtBoxNombreUsuario.Clear();
-            txtBoxClaveUsuario.Clear();
-            txtBoxRepetirClaveUsuario.Clear();
+            LimpiarCamposRegistro();
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -77,8 +84,7 @@ namespace GestionVeterinaria
             if (String.IsNullOrEmpty(txtBoxUsuarioLogin.Text) || String.IsNullOrEmpty(txtBoxClaveLogin.Text))
             {
                 MessageBox.Show("Faltan rellenar campos.");
-                txtBoxUsuarioLogin.Clear();
-                txtBoxClaveLogin.Clear();
+                LimpiarCamposLogin();
                 return;
             }
 
@@ -101,8 +107,7 @@ namespace GestionVeterinaria
             }
 
             MessageBox.Show("El usuario o contraseña no coinciden.");
-            txtBoxUsuarioLogin.Clear();
-            txtBoxClaveLogin.Clear();
+            LimpiarCamposLogin();
         }
         
     }
