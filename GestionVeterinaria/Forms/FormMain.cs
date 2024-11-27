@@ -17,12 +17,28 @@ namespace GestionVeterinaria.Forms
     public partial class FormMain : Form
     {
         private readonly ClientesDAO _clientesDAO;
+        private readonly EspeciesDAO _especiesDAO;
         private List<Cliente> _listaClientes;
+        private List<Especie> _listaEspecies;
         public FormMain()
         {
             InitializeComponent();
             this._clientesDAO = new ClientesDAO();
             this._listaClientes = new List<Cliente>();
+            this._especiesDAO = new EspeciesDAO();
+            this._listaEspecies = new List<Especie>();
+        }
+
+        public void LimpiarCampos1()
+        {
+            this.txtBoxDNICliente.Clear();
+            this.txtBoxNombreCliente.Clear();
+        }
+        public void LimpiarCampos2()
+        {
+            this.txtBoxEdadMadurezEspecie.Clear();
+            this.txtBoxNombreEspecie.Clear();
+            this.txtBoxPesoPromedioEspecie.Clear();
         }
 
         private void btnFormInforme1_Click(object sender, EventArgs e)
@@ -44,7 +60,7 @@ namespace GestionVeterinaria.Forms
             if (String.IsNullOrEmpty(txtBoxNombreCliente.Text) || String.IsNullOrEmpty(txtBoxDNICliente.Text))
             {
                 MessageBox.Show("Faltan rellenar campos.");
-                LimpiarCampos();
+                LimpiarCampos1();
                 return;
             }
 
@@ -68,30 +84,57 @@ namespace GestionVeterinaria.Forms
                     if (cliente.DNI == clienteB.DNI)
                     {
                         MessageBox.Show($"El DNI {clienteB.DNI} ya existe");
-                        LimpiarCampos();
+                        LimpiarCampos1();
 
                     }
                 }
                 _clientesDAO.InsertCliente(cliente);
-                LimpiarCampos();
+                LimpiarCampos1();
             }
             catch (FormatException fEX)
             {
                 MessageBox.Show("El DNI debe ser un número válido.");
-                LimpiarCampos();
+                LimpiarCampos1();
             }
             catch (DNINegativoException DNegEx)
             {
                 MessageBox.Show("El DNI no puede ser negativo");
-                LimpiarCampos();
+                LimpiarCampos1();
             }
 
         }
 
-        public void LimpiarCampos()
+        
+
+        private void btnAltaEspecie_Click(object sender, EventArgs e)
         {
-            this.txtBoxDNICliente.Clear();
-            this.txtBoxNombreCliente.Clear();
+            try
+            {
+                string nombre = txtBoxNombreEspecie.Text;
+                string sPesoPromedio = txtBoxPesoPromedioEspecie.Text;
+                string sEdadMad = txtBoxEdadMadurezEspecie.Text;
+
+                decimal PesoPromedio = decimal.Parse(sPesoPromedio);
+                int EdadMad = int.Parse(sEdadMad);
+
+                if (EdadMad <= 0)
+                {
+                    throw new EdadMadurezNegativaOCeroException(sEdadMad);
+                }
+                if (PesoPromedio <= 0)
+                {
+                    throw new PesoPromedioNegativoOCeroException(sPesoPromedio);
+                }
+            }
+            catch (EdadMadurezNegativaOCeroException EMex)
+            {
+                MessageBox.Show("La edad de madurez debe ser positiva");
+            }
+            catch (PesoPromedioNegativoOCeroException PPex)
+            {
+                MessageBox.Show("El peso promedio debe ser positivo");
+            }
+
         }
     }
 }

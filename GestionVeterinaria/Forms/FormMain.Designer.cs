@@ -96,6 +96,7 @@
             this.btnAltaEspecie.TabIndex = 10;
             this.btnAltaEspecie.Text = "Cargar";
             this.btnAltaEspecie.UseVisualStyleBackColor = true;
+            this.btnAltaEspecie.Click += new System.EventHandler(this.btnAltaEspecie_Click);
             // 
             // txtBoxPesoPromedioEspecie
             // 
@@ -195,7 +196,6 @@
             this.txtBoxDNICliente.Name = "txtBoxDNICliente";
             this.txtBoxDNICliente.Size = new System.Drawing.Size(184, 20);
             this.txtBoxDNICliente.TabIndex = 1;
-            
             // 
             // label2
             // 
@@ -305,7 +305,6 @@
             this.label8.Size = new System.Drawing.Size(41, 17);
             this.label8.TabIndex = 12;
             this.label8.Text = "Edad";
-            
             // 
             // txtBoxNombreAnimal
             // 
