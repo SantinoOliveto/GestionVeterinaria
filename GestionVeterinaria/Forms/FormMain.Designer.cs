@@ -170,6 +170,7 @@
             this.btnAltaCliente.TabIndex = 4;
             this.btnAltaCliente.Text = "Cargar";
             this.btnAltaCliente.UseVisualStyleBackColor = true;
+            this.btnAltaCliente.Click += new System.EventHandler(this.btnAltaCliente_Click);
             // 
             // txtBoxNombreCliente
             // 
@@ -194,7 +195,7 @@
             this.txtBoxDNICliente.Name = "txtBoxDNICliente";
             this.txtBoxDNICliente.Size = new System.Drawing.Size(184, 20);
             this.txtBoxDNICliente.TabIndex = 1;
-            this.txtBoxDNICliente.TextChanged += new System.EventHandler(this.txtBoxDNICliente_TextChanged);
+            
             // 
             // label2
             // 
@@ -304,7 +305,7 @@
             this.label8.Size = new System.Drawing.Size(41, 17);
             this.label8.TabIndex = 12;
             this.label8.Text = "Edad";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // txtBoxNombreAnimal
             // 

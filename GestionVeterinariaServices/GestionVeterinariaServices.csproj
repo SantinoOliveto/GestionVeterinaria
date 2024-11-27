@@ -49,6 +49,7 @@
     <Compile Include="DAOs\EspeciesDAO.cs" />
     <Compile Include="DAOs\UsuariosDAO.cs" />
     <Compile Include="Exceptions\AutenticacionFallidaException.cs" />
+    <Compile Include="Exceptions\DNINegativoException.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Especie.cs" />

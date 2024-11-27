@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvInforme2 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnMostrarCliente = new System.Windows.Forms.Button();
             this.btnVolverMenu2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInforme2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,16 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(107, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Informe General";
+            // 
             // btnMostrarCliente
             // 
             this.btnMostrarCliente.Location = new System.Drawing.Point(121, 108);
@@ -85,16 +95,6 @@
             this.btnVolverMenu2.Text = "Volver al Menu";
             this.btnVolverMenu2.UseVisualStyleBackColor = true;
             this.btnVolverMenu2.Click += new System.EventHandler(this.btnVolverMenu2_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(107, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Informe General";
             // 
             // FormReporte2
             // 
