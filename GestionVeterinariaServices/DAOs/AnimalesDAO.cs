@@ -67,6 +67,8 @@ namespace GestionVeterinariaServices.DAOs
 
         }
 
+
+        //--------------Primer Reporte-----------------//
         public DataTable GetPrimerReporte(int edadMin, int edadMax)
         {
             string sQuery = "SELECT e.Nombre AS Especie, MIN(a.Peso) AS PesoMinimo, " +
@@ -88,7 +90,9 @@ namespace GestionVeterinariaServices.DAOs
 
             return dataTable;
         }
-        
+
+
+        //--------------Segundo Reporte-----------------//
         public DataTable GetSegundoReporte()
         {
             string sQuery = "SELECT c.Nombre AS Cliente, COUNT(a.AnimalID) AS CantidadAnimales " +
