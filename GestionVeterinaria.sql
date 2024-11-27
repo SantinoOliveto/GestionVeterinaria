@@ -35,3 +35,12 @@ CREATE TABLE Animales(
     FOREIGN KEY (ClienteDNI) REFERENCES Clientes(DNI),
     FOREIGN KEY (EspecieID) REFERENCES Especies(EspecieID)
     );
+
+--Valores Iniciales
+--Usuario Inicial
+INSERT INTO Usuarios (Nombre, Clave)
+VALUES ('admin', 'admin');
+
+--Especie Inicial
+INSERT INTO Especies(Nombre, EdadMadurez, PesoPromedio)
+VALUES ('Sin especificar', 0.00, 0)
