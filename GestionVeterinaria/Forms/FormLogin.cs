@@ -25,8 +25,6 @@ namespace GestionVeterinaria
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-
-        //------------Metodos para limpiar campos------------///
         private void LimpiarCamposRegistro()
         {
             txtBoxNombreUsuario.Clear();
@@ -39,8 +37,6 @@ namespace GestionVeterinaria
             txtBoxUsuarioLogin.Clear();
             txtBoxClaveLogin.Clear();
         }
-
-
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
@@ -101,13 +97,14 @@ namespace GestionVeterinaria
             {
                 if (usuario.Nombre.ToLower() == nombre && usuario.Clave.ToLower() == clave)
                 {
-                    //-----Cambio de ventana----//
+                    
                     MessageBox.Show("Se inicio sesion correctamente.");
                     var mainForm = new FormMain();
                     mainForm.StartPosition = FormStartPosition.CenterScreen;
                     mainForm.Show();
                     this.Hide();
                     return;
+
                 }
             }
 
