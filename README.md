@@ -21,7 +21,8 @@ Instalación manual
 1. **Descargar** el archivo comprimido con el proyecto desde el repositorio y descomprimirlo en el equipo.
 2. **Crear la base de datos** en SQL Server Management Studio.
 3. **Crear las tablas**: Ejecutar una nueva query en SQL Server Management Studio, copiando y pegando el contenido del archivo `GestionVeterinaria.sql` incluido en el proyecto.
-4. **Ejecutar la aplicación**: Abrir el proyecto en el IDE seleccionado (Visual Studio 2022 recomendado) y ejecutar la aplicación.
+4. **Ejecutar la aplicación**: Abrir el proyecto en el IDE seleccionado (Visual Studio 2022 recomendado), **Editar** la cadena de conexión para que coincida con tu configuración de SQL Server Management Studio y ejecutar la aplicación.
+
 
 Instalación automatica
 1. **Descargar** el archivo comprimido con el proyecto desde el repositorio y descomprimirlo en el equipo.
